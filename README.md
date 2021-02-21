@@ -13,7 +13,7 @@ Bayes, Logistic Regression, Random Forest, Neural Network and Decision Tree.
 
 ## Screenshots
 
-![image](1.png)
+![image](static/Screenshot (28).png)
 
 ![image](2.png)
 
