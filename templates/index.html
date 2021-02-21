@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Password Strength Analysis</title>
+    
+    <link href="{{ url_for('static', filename = 'css/bootstrap.min.css') }}" rel="stylesheet">
+   
+</head>
+
+<body>
+    <style>
+        h3{
+            padding-left:0;
+            padding-right:0;
+            padding-top:0;
+            color:black;
+            font-family:Lato;
+            font-size: 20px;
+
+        }
+        h2{
+            font-size:30px;
+            padding-top:0px;
+            padding-bottom: 30px;
+            padding-left:9%;
+            color:Black;
+            font-family:Lato;
+            margin:0px;
+        }
+        h1{
+            top:0;
+            padding-left:5%;
+            color:#007BFF;
+            font-family:Lato;
+            margin:0px;
+            text-shadow:1px 2px grey;
+
+        }
+    </style>
+    <h1>Password Strength Analyser</h1><br>
+    <h2>Why use a Strong Password?</h2>
+    <div class = "container">
+        <h3>A strong password provides essential protection from financial fraud and identity theft. One of the most common ways that hackers break into computers is by guessing passwords. Simple and commonly used passwords enable intruders to easily gain access and control of a computing device.<br>This tool is based on Machine Learning, After you enter your password, It analyses the strength of your password using 5 different Machine Learning Algorithms and gives you the answer whether your password is secure.  And if your password is weak, This tool will try to generate a strong password for you.<br><br>Enter your password and click the "Check" button to know if your identity is secure.</h3><br>
+    </div>
+        <div class="col-md-8" style="text-align:center;margin: 0 auto;">
+            <form method="POST" action="/main/">
+                <input type="text" class="form-control" placeholder="Enter Password" name="password" required>
+                <div class="button-group" style="margin-top:15px;">
+                    <button type="submit" name="submit" class="btn btn-primary">Check</button>
+                </div>
+            </form>
+        </div>
+    
+
+
+    
+        <div class="col-md-8" style="margin: 0 auto; margin-top:25px;">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Algorithm</th>
+                        <th scope="col">Strength</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Logistic Regression</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td>Naive Bayes</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td>Decision Tree</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td>Random Forest</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td>Neural Network</td>
+                        <td>None</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    
+
+</body>
+
+</html>

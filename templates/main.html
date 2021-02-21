@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Password Strength Analysis</title>
+    <!-- Bootstrap -->
+    <link href="{{ url_for('static', filename = 'css/bootstrap.min.css') }}" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <h3 class="text-center" style="padding:15px">CHECK YOUR PASSWORD STRENGTH</h3>
+    
+        <div class="col-md-8" style="text-align:center;margin: 0 auto;">
+            <form method="POST">
+                <input type="text" class="form-control" placeholder="Enter Password" name="password" value="{{ request.form.password }}"
+                    required><br>
+                <div class="button-group">
+                    <button type="submit" name="submit" class="btn btn-primary">Check</button>
+                </div>
+            </form>
+        </div>
+ 
+        <div class="col-md-8" style="margin: 0 auto; margin-top:25px;">
+            <table class="table table-bordered" bordercolor="black">
+                <thead>
+                    <tr>
+                        <th scope="col">ALGORITHM</th>
+                        <th scope="col">STRENGTH</th>
+                    </tr>
+                </thead>
+        
+                <tbody>
+                    {% if (DecisionTree == 0) %}
+                        <tr style="background-color: #ec4848;">
+                            <td>Decision Tree</td>
+                            <td>Weak</td>
+                        </tr>
+                    {% endif %}
+                    {% if (DecisionTree == 1) %}
+                        <tr style="background-color: #a11fed;">
+                            <td>Decision Tree</td>
+                            <td>Medium</td>
+                        </tr>
+                    {% endif %}
+                    {% if (DecisionTree == 2) %}
+                        <tr style="background-color: #53d653;">
+                            <td>Decision Tree</td>
+                            <td>Strong</td>
+                        </tr>
+                    {% endif %}
+
+                    {% if (LogReg == 0) %}
+                        <tr style="background-color: #ec4848;">
+                            <td>Logistic Regression</td>
+                            <td>Weak</td>
+                        </tr>
+                    {% endif %}
+                    {% if (LogReg == 1) %}
+                        <tr style="background-color: #a11fed;">
+                            <td>Logistic Regression</td>
+                            <td>Medium</td>
+                        </tr>
+                    {% endif %}
+                    {% if (LogReg == 2) %}
+                        <tr style="background-color: #53d653;">
+                            <td>Logistic Regression</td>
+                            <td>Strong</td>
+                        </tr>
+                    {% endif %}
+
+                   {% if (NaiveBayes == 0) %}
+                        <tr style="background-color: #ec4848;">
+                            <td>Naive Bayes</td>
+                            <td>Weak</td>
+                        </tr>
+                    {% endif %}
+                    {% if (NaiveBayes == 1) %}
+                        <tr style="background-color: #a11fed;">
+                            <td>Naive Bayes</td>
+                            <td>Medium</td>
+                        </tr>
+                    {% endif %}
+                    {% if (NaiveBayes == 2) %}
+                        <tr style="background-color: #53d653;">
+                            <td>Naive Bayes</td>
+                            <td>Strong</td>
+                        </tr>
+                    {% endif %}
+                    {% if (RandomForest == 0) %}
+                        <tr style="background-color: #ec4848;">
+                            <td>Random Forest</td>
+                            <td>Weak</td>
+                        </tr>
+                    {% endif %}
+                    {% if (RandomForest == 1) %}
+                        <tr style="background-color: #a11fed;">
+                            <td>Random Forest</td>
+                            <td>Medium</td>
+                        </tr>
+                    {% endif %}
+                    {% if (RandomForest == 2) %}
+                        <tr style="background-color: #53d653;">
+                            <td>Random Forest</td>
+                            <td>Strong</td>
+                        </tr>
+                    {% endif %}
+
+                    {% if (NeuralNetwork == 0) %}
+                        <tr style="background-color: #ec4848;">
+                            <td>Neural Network</td>
+                            <td>Weak</td>
+                        </tr>
+                    {% endif %}
+                    {% if (NeuralNetwork == 1) %}
+                        <tr style="background-color:   #a11fed;">
+                            <td>Neural Network</td>
+                            <td>Medium</td>
+                        </tr>
+                    {% endif %}
+                    {% if (NeuralNetwork == 2) %}
+                        <tr style="background-color: #53d653;">
+                            <td>Neural Network</td>
+                            <td>Strong</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="col-md-8" style="text-align:center;margin: 0 auto;">
+        <script>
+            function get_password(){
+                var pass = ''; 
+                var str1 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                var str2 = 'abcdefghijklmnopqrstuvwxyz'; 
+                var str3 = '0123456789';
+                var str4 = '@#$%!&';
+                
+                var char1 = Math.floor(Math.random() * str1.length + 1);
+                pass += str1.charAt(char1);
+                for (i = 1; i <= 6; i++) { 
+                    var char2 = Math.floor(Math.random() * str2.length + 1);
+                    pass += str2.charAt(char2) 
+                } 
+                var char3 = Math.floor(Math.random() * str4.length + 1);
+                pass += str4.charAt(char3);
+                for (i = 1; i <= 4; i++) { 
+                    var char4 = Math.floor(Math.random() * str3.length + 1);
+                    pass += str3.charAt(char4) 
+                }
+                var char4 = Math.floor(Math.random() * str4.length + 1);
+                pass += str4.charAt(char4);                
+                document.getElementById("psw").value = pass;
+                document.getElementById("btn").innerHTML="Copied to Clipboard!"
+                myCopy();
+            }
+            function myCopy() {
+              var copyText = document.getElementById("psw");
+              copyText.select();
+              document.execCommand("Copy");
+              console.log("Copied the text: " + copyText.value);
+            }    
+        </script>
+            <form method="POST">
+                <div class="button-group">
+                    <center><p>Weak password?, Click on "Get Strong Password!" button to get a completely strong and random password.</p></center><br>
+                    <input id="psw" type="text" class="form-control" placeholder="Your Password" name="password" readonly><br><br>
+                    <button name="submit1" id="btn" type="button" onclick="get_password()" class="btn btn-primary">Get Strong Password!</button>
+                </div>                
+            </form>
+        </div>
+</body>
+</html>
