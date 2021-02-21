@@ -21,6 +21,6 @@ Bayes, Logistic Regression, Random Forest, Neural Network and Decision Tree.
 
 ![image](https://github.com/Yuvaraj19/Password-Strength-Classifier/blob/main/static/Screenshot%20(31).png)
 
-##Demo
+## Demo
 
 ![gif](https://github.com/Yuvaraj19/Password-Strength-Classifier/blob/main/static/psc.gif)
